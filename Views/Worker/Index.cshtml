@@ -1,0 +1,30 @@
+﻿@model IEnumerable<RepairAndConstructionService.Models.Worker>
+
+<h1>Workers</h1>
+<a asp-action="Create" class="btn btn-primary">Add New Worker</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Specialization</th>
+            <th>Rating</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var worker in Model)
+        {
+            <tr>
+                <td>@worker.Name</td>
+                <td>@worker.Specialization</td>
+                <td>@worker.Rating</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@worker.Id" class="btn btn-warning">Edit</a>
+                    <a asp-action="Details" asp-route-id="@worker.Id" class="btn btn-info">Details</a>
+                    <a asp-action="Delete" asp-route-id="@worker.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

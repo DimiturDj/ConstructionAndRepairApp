@@ -1,0 +1,27 @@
+﻿@model RepairAndConstructionService.Models.Worker
+
+<h1>Add Worker</h1>
+
+<form asp-action="Edit" method="post">
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Specialization</label>
+        <input type="text" asp-for="Specialization" class="form-control" />
+        <span asp-validation-for="Specialization" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Rating</label>
+        <input type="number" asp-for="Rating" class="form-control" step="0.1" />
+        <span asp-validation-for="Rating" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+</form>
+
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

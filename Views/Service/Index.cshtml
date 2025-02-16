@@ -1,0 +1,32 @@
+﻿@model IEnumerable<RepairAndConstructionService.Models.Service>
+
+@{
+    ViewData["Title"] = "Services";
+}
+
+<h1 class="text-center fw-bold">Our Services</h1>
+<p class="text-center text-muted">Browse through our wide range of home repair and construction services.</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var service in Model)
+        {
+            <tr>
+                <td>@service.Title</td>
+                <td>@service.Description</td>
+                <td>@service.Price.ToString("C")</td>
+                <td>
+                    <a asp-controller="Booking" asp-action="Create" asp-route-serviceId="@service.Id" class="btn btn-primary btn-sm">Book Now</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,54 @@
+﻿@model RepairAndConstructionService.Models.Booking
+
+<h1>Edit Booking</h1>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label for="CustomerId" class="form-label">Customer</label>
+        <select asp-for="CustomerId" class="form-control" asp-items="@(new SelectList(ViewBag.Customers, "Id", "Name"))">
+            <option value="">Select a Customer</option>
+        </select>
+        <span asp-validation-for="CustomerId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="WorkerId" class="form-label">Worker</label>
+        <select asp-for="WorkerId" class="form-control" asp-items="@(new SelectList(ViewBag.Workers, "Id", "Name"))">
+            <option value="">Select a Worker</option>
+        </select>
+        <span asp-validation-for="WorkerId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="JobOfferId" class="form-label">Job Offer</label>
+        <select asp-for="JobOfferId" class="form-control" asp-items="@(new SelectList(ViewBag.JobOffers, "Id", "Title"))">
+            <option value="">Select a Job Offer</option>
+        </select>
+        <span asp-validation-for="JobOfferId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="BookingDate" class="form-label">Booking Date</label>
+        <input type="date" asp-for="BookingDate" class="form-control" />
+        <span asp-validation-for="BookingDate" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="ServiceDate" class="form-label">Service Date</label>
+        <input type="date" asp-for="ServiceDate" class="form-control" />
+        <span asp-validation-for="ServiceDate" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-check-label">
+            <input type="checkbox" asp-for="IsCompleted" class="form-check-input" />
+            Completed
+        </label>
+    </div>
+
+    <button type="submit" class="btn btn-success">Save Changes</button>
+</form>
+
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

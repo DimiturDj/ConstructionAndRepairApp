@@ -1,0 +1,32 @@
+﻿@model IEnumerable<RepairAndConstructionService.Models.Review>
+
+<h1>Reviews</h1>
+<a asp-action="Create" class="btn btn-primary">Add New Review</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Customer</th>
+            <th>Worker</th>
+            <th>Comment</th>
+            <th>Rating</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var review in Model)
+        {
+            <tr>
+                <td>@review.Customer.Name</td>
+                <td>@review.Worker.Name</td>
+                <td>@review.Comment</td>
+                <td>@review.Rating / 5</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@review.Id" class="btn btn-warning">Edit</a>
+                    <a asp-action="Details" asp-route-id="@review.Id" class="btn btn-info">Details</a>
+                    <a asp-action="Delete" asp-route-id="@review.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
