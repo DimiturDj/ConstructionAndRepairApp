@@ -1,36 +1,43 @@
 ﻿@model IEnumerable<RepairAndConstructionService.Models.Booking>
 
-<h1>Bookings</h1>
-<a asp-action="Create" class="btn btn-primary">Add New Booking</a>
+<div class="container mt-4">
+    <!-- Page Header with Black Icon -->
+    <div class="d-flex justify-content-between align-items-center">
+        <h2 class="text-black"><i class="fas fa-calendar-check"></i> Your Bookings</h2>
+        <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> Add New Booking</a>
+    </div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Customer</th>
-            <th>Worker</th>
-            <th>Job Offer</th>
-            <th>Booking Date</th>
-            <th>Service Date</th>
-            <th>Status</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
+    <div class="row mt-3">
         @foreach (var booking in Model)
         {
-            <tr>
-                <td>@booking.Customer.Name</td>
-                <td>@booking.Worker.Name</td>
-                <td>@booking.JobOffer.Title</td>
-                <td>@booking.BookingDate.ToShortDateString()</td>
-                <td>@booking.ServiceDate?.ToShortDateString()</td>
-                <td>@(booking.IsCompleted ? "Completed" : "Pending")</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@booking.Id" class="btn btn-warning">Edit</a>
-                    <a asp-action="Details" asp-route-id="@booking.Id" class="btn btn-info">Details</a>
-                    <a asp-action="Delete" asp-route-id="@booking.Id" class="btn btn-danger">Delete</a>
-                </td>
-            </tr>
+            <div class="col-md-6">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title"><strong><i class="fas fa-tools"></i> Job:</strong> @booking.JobOffer.Title</h5>
+                        <p class="card-text"><strong><i class="fas fa-user"></i> Customer:</strong> @booking.Customer.Name</p>
+                        <p class="card-text"><strong><i class="fas fa-user-cog"></i> Worker:</strong> @booking.Worker.Name</p>
+                        <p class="card-text"><strong><i class="fas fa-calendar-alt"></i> Booking Date:</strong> @(booking.BookingDate.ToString("dd MMM yyyy") ?? "N/A")</p>
+                        <p class="card-text"><strong><i class="fas fa-calendar-day"></i> Service Date:</strong> @(booking.ServiceDate?.ToString("dd MMM yyyy") ?? "N/A")</p>
+                        <p>
+                            <strong><i class="fas fa-thumbtack"></i> Status:</strong>
+                            <span class="badge @(booking.IsCompleted ? "bg-success" : "bg-warning")">
+                                @(booking.IsCompleted ? "Completed" : "Pending")
+                            </span>
+                        </p>
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="Edit" asp-route-id="@booking.Id" class="btn btn-warning btn-sm">
+                                <i class="fas fa-edit"></i> Edit
+                            </a>
+                            <a asp-action="Details" asp-route-id="@booking.Id" class="btn btn-info btn-sm text-white">
+                                <i class="fas fa-info-circle"></i> Details
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@booking.Id" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash-alt"></i> Delete
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         }
-    </tbody>
-</table>
+    </div>
+</div>

@@ -18,33 +18,39 @@
 <div style="background: #f8f9fa; padding: 30px 0;">
     <!-- Featured Services Section -->
     <div class="container text-center mt-5">
-        <h2 class="fw-bold">Our Services</h2>
+        <h2 class="fw-bold"><i class="fas fa-tools"></i> Our Services</h2>
         <p class="text-muted">We offer a wide range of home repair and construction services.</p>
+
         <div class="row mt-4">
+            <!-- Plumbing Service -->
             <div class="col-md-4">
                 <div class="card shadow-sm h-100">
                     <div class="card-body">
-                        <i class="fas fa-tools fa-3x mb-3 text-primary"></i>
+                        <i class="fas fa-toilet fa-3x mb-3 text-primary"></i> <!-- Toilet Icon for Plumbing -->
                         <h5 class="card-title">Plumbing</h5>
                         <p class="card-text">Fix leaks, install new plumbing, and handle all water system issues.</p>
                         <a asp-controller="Service" asp-action="Index" class="btn btn-outline-primary">View Services</a>
                     </div>
                 </div>
             </div>
+
+            <!-- Electrical Work Service -->
             <div class="col-md-4">
                 <div class="card shadow-sm h-100">
                     <div class="card-body">
-                        <i class="fas fa-bolt fa-3x mb-3 text-primary"></i>
+                        <i class="fas fa-bolt fa-3x mb-3 text-primary"></i> <!-- Lightning Bolt for Electrical Work -->
                         <h5 class="card-title">Electrical Work</h5>
                         <p class="card-text">Reliable electrical installation and repair by certified professionals.</p>
                         <a asp-controller="Service" asp-action="Index" class="btn btn-outline-primary">View Services</a>
                     </div>
                 </div>
             </div>
+
+            <!-- Painting & Renovation Service -->
             <div class="col-md-4">
                 <div class="card shadow-sm h-100">
                     <div class="card-body">
-                        <i class="fas fa-paint-roller fa-3x mb-3 text-primary"></i>
+                        <i class="fas fa-paint-roller fa-3x mb-3 text-primary"></i> <!-- Paint Roller for Painting -->
                         <h5 class="card-title">Painting & Renovation</h5>
                         <p class="card-text">Give your home a fresh new look with our painting & remodeling services.</p>
                         <a asp-controller="Service" asp-action="Index" class="btn btn-outline-primary">View Services</a>
