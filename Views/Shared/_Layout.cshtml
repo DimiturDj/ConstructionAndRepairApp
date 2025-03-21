@@ -26,35 +26,55 @@
                 <!-- Logo & Brand Name -->
                 <a class="navbar-brand fw-bold text-primary d-flex align-items-center" asp-controller="Home" asp-action="Index">
                     <img src="~/images/maintenance-construction-icon-blue-color-design-vector-38667007.jpg"
-                         alt="Logo" height="40" class="me-2"> <!-- Logo -->
+                         alt="Logo" height="40" class="me-2">
                     Repair & Construction
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Index"><i class="fas fa-home"></i> Home</a>
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">
+                                <i class="fas fa-home"></i> Home
+                            </a>
+                        </li>
+
+                        @if (User.IsInRole("Admin") || User.IsInRole("Worker"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Customer" asp-action="Index">
+                                    <i class="fas fa-users"></i> Customers
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Booking" asp-action="Index">
+                                    <i class="fas fa-calendar-check"></i> Bookings
+                                </a>
+                            </li>
+                        }
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Service" asp-action="Index">
+                                <i class="fas fa-tools"></i> Services
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Service" asp-action="Index"><i class="fas fa-tools"></i> Services</a>
+                            <a class="nav-link text-dark" asp-controller="Worker" asp-action="Index">
+                                <i class="fas fa-people-carry"></i> Our Workers
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Worker" asp-action="Index"><i class="fas fa-people-carry"></i> Our Workers</a>
+                            <a class="nav-link text-dark" asp-controller="Review" asp-action="Index">
+                                <i class="fas fa-comments"></i> Reviews
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Customer" asp-action="Index"><i class="fas fa-users"></i> Customers</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Booking" asp-action="Index"><i class="fas fa-calendar-check"></i> Bookings</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Review" asp-action="Index"><i class="fas fa-comments"></i> Reviews</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Privacy"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Privacy">
+                                <i class="fas fa-shield-alt"></i> Privacy Policy
+                            </a>
                         </li>
                     </ul>
 
