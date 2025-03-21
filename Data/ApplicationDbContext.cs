@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using RepairAndConstructionService.Models;
@@ -89,8 +89,14 @@ namespace RepairAndConstructionService.Data
                 new Service { Id = 3, Title = "Painting", Description = "Interior and exterior painting services.", Price = 300M },
                 new Service { Id = 4, Title = "Electrician", Description = "Electrical installations and repair.", Price = 200M }
             );
+            //Reviews
+            modelBuilder.Entity<Review>().HasData(
+             new Review { Id = 1, CustomerId = 1, WorkerId = 1, Comment = "Amazing service and very professional!", Rating = 5 },
+             new Review { Id = 2, CustomerId = 2, WorkerId = 2, Comment = "Quick and efficient repair. Highly recommended!", Rating = 5 },
+             new Review { Id = 3, CustomerId = 1, WorkerId = 2, Comment = "The plumber did a great job, no issues since.", Rating = 4 },
+             new Review { Id = 4, CustomerId = 2, WorkerId = 1, Comment = "Very skilled electrician. Solved all my problems!", Rating = 5 },
+             new Review { Id = 5, CustomerId = 1, WorkerId = 1, Comment = "Friendly and experienced. Would hire again.", Rating = 4 }
+);
         }
     }
 }
-
-
